@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentinel - Wikipedia Path Finder</title>
+    <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="/src/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SENTINEL</h1>
+            <p>Wikipedia Path Finder</p>
+        </header>
+
+        <div class="search-container">
+            <div class="input-group">
+                <div class="input-wrapper">
+                    <i class="fas fa-play"></i>
+                    <input type="text" id="startArticle" placeholder="Starting Article">
+                </div>
+                <div class="input-wrapper">
+                    <i class="fas fa-flag"></i>
+                    <input type="text" id="endArticle" placeholder="Target Article">
+                </div>
+                <button id="searchButton"><i class="fas fa-search"></i> Find Path</button>
+            </div>
+            
+            <button id="settingsToggle" class="settings-button"><i class="fas fa-cog"></i></button>
+        </div>
+
+        <div id="settingsPanel" class="settings-panel hidden">
+            <h2><i class="fas fa-sliders-h"></i> Search Settings</h2>
+            <div class="setting-item">
+                <label for="maxDepth"><i class="fas fa-level-down-alt"></i> Maximum Search Depth:</label>
+                <input type="number" id="maxDepth" value="4" min="1" max="10">
+            </div>
+            <div class="setting-item">
+                <label for="maxPages"><i class="fas fa-file-alt"></i> Maximum Pages to Search:</label>
+                <input type="number" id="maxPages" value="4000" min="100" max="30000">
+            </div>
+            <div class="setting-item">
+                <label for="concurrentRequests"><i class="fas fa-network-wired"></i> Concurrent Requests:</label>
+                <input type="number" id="concurrentRequests" value="5" min="1" max="10">
+            </div>
+        </div>
+
+        <div id="results" class="results-container"></div>
+        
+        <div id="loading" class="loading-container hidden">
+            <i class="fas fa-circle-notch fa-spin fa-3x"></i>
+            <p>Searching for path...</p>
+            <p id="searchStatus"></p>
+        </div>
+    </div>
+    <script type="module" src="/src/app.js"></script>
+</body>
+</html>
